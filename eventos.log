@@ -1,0 +1,268 @@
+2026-11-20 22:04:51,111 | INFO | Cliente registrado: 1001
+2026-11-20 22:04:51,112 | INFO | Operación 1 completada: Registrar cliente válido
+2026-11-20 22:04:51,113 | ERROR | Operación 2 (Registrar cliente con correo inválido): El correo electrónico no tiene un formato válido.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 328, in <lambda>
+    sistema.registrar_cliente("1002", "Cliente Inválido", "correo_incorrecto"))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 269, in registrar_cliente
+    cliente = Cliente(identificacion, nombre, correo)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 105, in __init__
+    raise ErrorValidacion("El correo electrónico no tiene un formato válido.")
+ErrorValidacion: El correo electrónico no tiene un formato válido.
+2026-11-20 22:04:51,151 | INFO | Cliente registrado: 1003
+2026-11-20 22:04:51,151 | INFO | Operación 3 completada: Registrar segundo cliente válido
+2026-11-20 22:04:51,152 | INFO | Servicio registrado: S1
+2026-11-20 22:04:51,152 | INFO | Operación 4 completada: Registrar sala
+2026-11-20 22:04:51,153 | INFO | Servicio registrado: E1
+2026-11-20 22:04:51,154 | INFO | Operación 5 completada: Registrar equipo
+2026-11-20 22:04:51,154 | INFO | Servicio registrado: A1
+2026-11-20 22:04:51,155 | INFO | Operación 6 completada: Registrar asesoría
+2026-11-20 22:04:51,155 | ERROR | Operación 7 (Crear servicio con tarifa incorrecta): Tarifa debe ser mayor que cero y finito.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 338, in <lambda>
+    sistema.registrar_servicio(Sala("S2", "Sala inválida", -1000)))
+                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 130, in __init__
+    self.tarifa = validar_numero_positivo(tarifa, "Tarifa")
+                  ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 59, in validar_numero_positivo
+    raise ErrorValidacion(f"{campo} debe ser mayor que cero y finito.")
+ErrorValidacion: Tarifa debe ser mayor que cero y finito.
+2026-11-20 22:04:51,159 | INFO | Reserva creada: 1
+2026-11-20 22:04:51,159 | INFO | Operación 8 completada: Crear reserva de sala
+2026-11-20 22:04:51,160 | INFO | Reserva 1 confirmada
+2026-11-20 22:04:51,160 | INFO | Operación 9 completada: Procesar reserva de sala
+2026-11-20 22:04:51,161 | INFO | Reserva creada: 2
+2026-11-20 22:04:51,161 | INFO | Operación 10 completada: Crear reserva de equipo
+2026-11-20 22:04:51,161 | INFO | Reserva 2 confirmada
+2026-11-20 22:04:51,162 | INFO | Operación 11 completada: Procesar equipo con descuento e impuesto
+2026-11-20 22:04:51,162 | INFO | Reserva creada: 3
+2026-11-20 22:04:51,163 | INFO | Operación 12 completada: Crear reserva de asesoría
+2026-11-20 22:04:51,164 | INFO | Reserva 3 confirmada
+2026-11-20 22:04:51,165 | INFO | Operación 13 completada: Confirmar asesoría
+2026-11-20 22:04:51,165 | ERROR | Operación 14 (Intentar reserva con duración cero): La duración debe ser mayor que cero.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 352, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["sala"], 0))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 173, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 137, in validar_parametros
+    horas = validar_duracion(duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 86, in validar_duracion
+    raise ErrorValidacion("La duración debe ser mayor que cero.")
+ErrorValidacion: La duración debe ser mayor que cero.
+2026-11-20 22:04:51,168 | ERROR | Operación 15 (Intentar reserva sin disponibilidad): El servicio E1 no está disponible.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 355, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["equipo"], 2)))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 186, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 139, in validar_parametros
+    raise ErrorServicioNoDisponible(f"El servicio {self.codigo} no está disponible.")
+ErrorServicioNoDisponible: El servicio E1 no está disponible.
+2026-11-20 22:04:51,172 | INFO | Reserva 3 cancelada
+2026-11-20 22:04:51,172 | INFO | Operación 16 completada: Cancelar reserva de asesoría
+2026-11-20 22:04:51,173 | ERROR | Operación 17 (Intentar confirmar reserva cancelada): Solo se puede confirmar una reserva pendiente.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 359, in <lambda>
+    elementos["reserva_asesoria"].confirmar())
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 228, in confirmar
+    raise ErrorReserva("Solo se puede confirmar una reserva pendiente.")
+ErrorReserva: Solo se puede confirmar una reserva pendiente.
+2026-11-20 22:04:51,175 | ERROR | Operación 18 (Registrar cliente duplicado): La identificación del cliente ya está registrada.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 361, in <lambda>
+    sistema.registrar_cliente("1001", "Otra Ana", "otra@correo.com"))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 271, in registrar_cliente
+    raise ErrorValidacion("La identificación del cliente ya está registrada.")
+ErrorValidacion: La identificación del cliente ya está registrada.
+2026-11-20 22:04:51,177 | ERROR | Operación 19 (Intentar reserva con duración no numérica): La duración debe ser un número entero.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 78, in validar_duracion
+    numero = int(valor)
+ValueError: invalid literal for int() with base 10: 'dos'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 363, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["sala"], "dos"))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 173, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 137, in validar_parametros
+    horas = validar_duracion(duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 82, in validar_duracion
+    raise ErrorValidacion("La duración debe ser un número entero.") from error
+ErrorValidacion: La duración debe ser un número entero.
+2026-11-20 22:05:13,392 | INFO | Cliente registrado: 1001
+2026-11-20 22:05:13,393 | INFO | Operación 1 completada: Registrar cliente válido
+2026-11-20 22:05:13,393 | ERROR | Operación 2 (Registrar cliente con correo inválido): El correo electrónico no tiene un formato válido.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 328, in <lambda>
+    sistema.registrar_cliente("1002", "Cliente Inválido", "correo_incorrecto"))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 269, in registrar_cliente
+    cliente = Cliente(identificacion, nombre, correo)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 105, in __init__
+    raise ErrorValidacion("El correo electrónico no tiene un formato válido.")
+ErrorValidacion: El correo electrónico no tiene un formato válido.
+2026-11-20 22:05:13,416 | INFO | Cliente registrado: 1003
+2026-11-20 22:05:13,416 | INFO | Operación 3 completada: Registrar segundo cliente válido
+2026-11-20 22:05:13,416 | INFO | Servicio registrado: S1
+2026-11-20 22:05:13,417 | INFO | Operación 4 completada: Registrar sala
+2026-11-20 22:05:13,417 | INFO | Servicio registrado: E1
+2026-11-20 22:05:13,418 | INFO | Operación 5 completada: Registrar equipo
+2026-11-20 22:05:13,419 | INFO | Servicio registrado: A1
+2026-11-20 22:05:13,419 | INFO | Operación 6 completada: Registrar asesoría
+2026-11-20 22:05:13,420 | ERROR | Operación 7 (Crear servicio con tarifa incorrecta): Tarifa debe ser mayor que cero y finito.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 338, in <lambda>
+    sistema.registrar_servicio(Sala("S2", "Sala inválida", -1000)))
+                               ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 130, in __init__
+    self.tarifa = validar_numero_positivo(tarifa, "Tarifa")
+                  ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 59, in validar_numero_positivo
+    raise ErrorValidacion(f"{campo} debe ser mayor que cero y finito.")
+ErrorValidacion: Tarifa debe ser mayor que cero y finito.
+2026-11-20 22:05:13,423 | INFO | Reserva creada: 1
+2026-11-20 22:05:13,424 | INFO | Operación 8 completada: Crear reserva de sala
+2026-11-20 22:05:13,424 | INFO | Reserva 1 confirmada
+2026-11-20 22:05:13,425 | INFO | Operación 9 completada: Procesar reserva de sala
+2026-11-20 22:05:13,425 | INFO | Reserva creada: 2
+2026-11-20 22:05:13,425 | INFO | Operación 10 completada: Crear reserva de equipo
+2026-11-20 22:05:13,426 | INFO | Reserva 2 confirmada
+2026-11-20 22:05:13,426 | INFO | Operación 11 completada: Procesar equipo con descuento e impuesto
+2026-11-20 22:05:13,427 | INFO | Reserva creada: 3
+2026-11-20 22:05:13,427 | INFO | Operación 12 completada: Crear reserva de asesoría
+2026-11-20 22:05:13,428 | INFO | Reserva 3 confirmada
+2026-11-20 22:05:13,430 | INFO | Operación 13 completada: Confirmar asesoría
+2026-11-20 22:05:13,433 | ERROR | Operación 14 (Intentar reserva con duración cero): La duración debe ser mayor que cero.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 352, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["sala"], 0))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 173, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 137, in validar_parametros
+    horas = validar_duracion(duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 86, in validar_duracion
+    raise ErrorValidacion("La duración debe ser mayor que cero.")
+ErrorValidacion: La duración debe ser mayor que cero.
+2026-11-20 22:05:13,439 | ERROR | Operación 15 (Intentar reserva sin disponibilidad): El servicio E1 no está disponible.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 355, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["equipo"], 2)))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 186, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 139, in validar_parametros
+    raise ErrorServicioNoDisponible(f"El servicio {self.codigo} no está disponible.")
+ErrorServicioNoDisponible: El servicio E1 no está disponible.
+2026-11-20 22:05:13,443 | INFO | Reserva 3 cancelada
+2026-11-20 22:05:13,444 | INFO | Operación 16 completada: Cancelar reserva de asesoría
+2026-11-20 22:05:13,446 | ERROR | Operación 17 (Intentar confirmar reserva cancelada): Solo se puede confirmar una reserva pendiente.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 359, in <lambda>
+    elementos["reserva_asesoria"].confirmar())
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 228, in confirmar
+    raise ErrorReserva("Solo se puede confirmar una reserva pendiente.")
+ErrorReserva: Solo se puede confirmar una reserva pendiente.
+2026-11-20 22:05:13,448 | ERROR | Operación 18 (Registrar cliente duplicado): La identificación del cliente ya está registrada.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 361, in <lambda>
+    sistema.registrar_cliente("1001", "Otra Ana", "otra@correo.com"))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 271, in registrar_cliente
+    raise ErrorValidacion("La identificación del cliente ya está registrada.")
+ErrorValidacion: La identificación del cliente ya está registrada.
+2026-11-20 22:05:13,450 | ERROR | Operación 19 (Intentar reserva con duración no numérica): La duración debe ser un número entero.
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 78, in validar_duracion
+    numero = int(valor)
+ValueError: invalid literal for int() with base 10: 'dos'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 300, in ejecutar_operacion
+    resultado = accion()
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 363, in <lambda>
+    sistema.crear_reserva(elementos["ana"], elementos["sala"], "dos"))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 290, in crear_reserva
+    reserva = Reserva(cliente, servicio, duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 221, in __init__
+    self.duracion = servicio.validar_parametros(duracion)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 173, in validar_parametros
+    return super().validar_parametros(duracion)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 137, in validar_parametros
+    horas = validar_duracion(duracion)
+  File "c:\Users\USUARIO\programacion_fase4\main.py", line 82, in validar_duracion
+    raise ErrorValidacion("La duración debe ser un número entero.") from error
+ErrorValidacion: La duración debe ser un número entero.
