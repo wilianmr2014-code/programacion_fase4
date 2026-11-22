@@ -1,8 +1,6 @@
 """Fase 4 - Programación UNAD.
 
-Sistema de gestión de clientes, servicios y reservas sin base de datos.
-Demuestra abstracción, herencia, polimorfismo, encapsulación y excepciones.
-Los precios y datos de prueba son ejemplos, no valores fijados en el anexo.
+Sistema de gestión de clientes, servicios.
 """
 
 from abc import ABC, abstractmethod
